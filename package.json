@@ -22,7 +22,7 @@
     "clsx": "^2.1.1",
     "drizzle-orm": "latest",
     "lucide-react": "latest",
-    "next": "15.1.4",
+    "next": "^16.2.10",
     "postgres": "latest",
     "radix-ui": "^1.6.2",
     "react": "19.0.0",
