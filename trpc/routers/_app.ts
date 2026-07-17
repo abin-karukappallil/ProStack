@@ -1,0 +1,19 @@
+import { router, publicProcedure, protectedProcedure } from '../init';
+import { z } from 'zod';
+
+export const appRouter = router({
+  hello: publicProcedure
+    .input(z.object({ text: z.string() }).optional())
+    .query(({ input }) => {
+      return {
+        greeting: `Hello ${input?.text ?? 'World'}`,
+      };
+    }),
+  secretMessage: protectedProcedure.query(({ ctx }) => {
+    return {
+      message: `Hello ${ctx.session.user.name}, you are logged in!`,
+    };
+  }),
+});
+
+export type AppRouter = typeof appRouter;
